@@ -3,7 +3,7 @@ spring:
     url: jdbc:mysql://containers-us-west-64.railway.app:5458/railway
     username: root
     password: l93E2lQLcHI7vrCv6pbv
-    name: femfy_db
+    name: MySQL
 
 #  sql:
 #    init:
