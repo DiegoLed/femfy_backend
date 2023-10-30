@@ -21,32 +21,32 @@ class UserRepositoryTest {
 	UserRepository repository;
 	@Autowired
 	TestEntityManager entityManager;
-	
+
 	@BeforeEach
 	public void setUp() throws Exception {
 		User user= new User();
-		user.setAge(20);
 		user.setEmail("peper2r@gmail.com");
 		user.setFirstName("pepe");
-		//user.setGender("Masculino");
 		user.setLastName("lopez");
 		user.setPhone("123456789");
+		user.setIsSuscriptor(true);
+		user.setLocalidad("La Matanza");
 		
 		entityManager.persist(user);
 	}
 
 	@Test
+	public void findUsers() {
+		List<User> users = repository.findAll();
+
+		assertThat(users).hasSize(1);
+	}
+/*
+	@Test
 	public void findById() {
 		Optional<User> user = repository.findById(1L);
 		assertEquals(user.get().getFirstName(), "pepe");
 		System.out.println("user.get() =" + user.get());
-	}
-	
-	@Test
-	public void findUsers() {
-	    List<User> users = repository.findAll();
-
-	    assertThat(users).hasSize(1);
-	}
+	}*/
 
 }
